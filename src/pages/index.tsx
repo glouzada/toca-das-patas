@@ -345,7 +345,7 @@ export default function Home() {
               </div>
               <div className={styles.infoItem}>
                 <strong>WhatsApp</strong>
-                <a href="tel:5511940013488">(11) 94001-3488</a>
+                <a href="https://wa.me/5511940013488" target="_blank" rel="noopener noreferrer">(11) 94001-3488</a>
               </div>
               <div className={styles.infoItem}>
                 <strong>Instagram</strong>

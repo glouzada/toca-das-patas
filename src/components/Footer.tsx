@@ -20,7 +20,7 @@ export default function Footer() {
             <h4>Contato</h4>
             <p>
               <strong>Telefone:</strong> <br />
-              <a href="tel:11940013488">(11) 94001-3488</a>
+              <a href="https://wa.me/5511940013488" target="_blank" rel="noopener noreferrer">(11) 94001-3488</a>
             </p>
             <p>
               <strong>Endereço:</strong> <br />
