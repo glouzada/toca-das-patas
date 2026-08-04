@@ -162,7 +162,7 @@ export default function Home() {
                   <path d="M12 20s-7-4.35-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 5c-2.5 4.65-9.5 9-9.5 9z" />
                 </svg>
               </div>
-              <h3>Rotina do Cachorro</h3>
+              <h3>Rotina do Pet</h3>
               <p>Exames periódicos, vacinação, verificação de saúde geral e controle de pulgas e carrapatos.</p>
               <p className={styles.cardNote}>Pulgas e carrapatos transmitem doenças graves — prevenimos antes que apareçam e tratamos rapidamente se já estiverem presentes.</p>
             </div>
