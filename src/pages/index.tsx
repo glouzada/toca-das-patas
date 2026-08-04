@@ -1,12 +1,24 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Head from 'next/head'
 import styles from './index.module.css'
 import { useReveal, useScrollY } from '@/hooks/useReveal'
 
-const testimonials = [
-  { name: 'Marina T.', pet: 'tutora do Thor', quote: 'A Dra. Luísa explicou cada detalhe do procedimento do meu cachorro. Nunca me senti tão segura deixando ele em uma clínica.' },
-  { name: 'Rafael C.', pet: 'tutor da Mel', quote: 'A tosa higiênica virou rotina aqui em casa. A Mel sai sempre cheirosa e a equipe é super atenciosa.' },
-  { name: 'Camila P.', pet: 'tutora do Bento', quote: 'Descobrimos um problema no exame de rotina antes que virasse algo sério. Só tenho a agradecer.' },
+const GOOGLE_REVIEWS_URL = 'https://share.google/kcR2hkNv9Y5TBP4EM'
+
+const googleReviews = [
+  { name: 'Marcelo Vieira', timeAgo: 'há 6 meses', quote: 'Sou cliente a muitos anos, excelente serviço, variedade de produtos e remédios!' },
+  { name: 'Marcelo Preisegalavicius', timeAgo: 'há 1 ano', quote: 'Para quem precisa de uma ótima veterinária e hotel para cães, super recomendo este local, a Dra. Luísa tratou meus dois pequenos como se fossem dela e ao retornar de 18 dias fora, estão felizes e animados, só tenho a agradecer por tanto carinho e cuidado! Vocês são incríveis 🥰' },
+  { name: 'Natália Abreu', timeAgo: 'há 1 ano', quote: 'Sou fã desse lugar! O banho é ótimo, não é demorado e os pets ficam no maior conforto enquanto esperam a vez deles. Além disso, o atendimento é sempre cuidadoso, e a veterinária, Dra. Luísa, é excelente!' },
+  { name: 'Silmara Boihagian', timeAgo: 'há 1 ano', quote: 'Muito carinho e cuidado com o banho da minha filhote. Voltarei!' },
+  { name: 'Cinthia Carla dos Santos', timeAgo: 'há 2 anos', quote: 'Dra. Luísa é um amor! Minhas filhas de quatro patas amam, muito carinho e amor pelo que faz ❤️' },
+  { name: 'Vany Laube', timeAgo: 'há 2 anos', quote: 'Amo a Luísa, veterinária raiz, muito conscienciosa, direta, como eu gosto!' },
+  { name: 'Paulina Ortolan', timeAgo: 'há 2 anos', quote: 'Veterinária excelente, banho e tosa muito bom. Ótimos preços.' },
+  { name: 'Marisa Nakaya Mendonça Gorgulho', timeAgo: 'há 2 anos', quote: 'A Toca das Patas é um pet excelente e a Dra. Luísa é a melhor veterinária da região, muito competente e séria.' },
+  { name: 'Octavio Pupo Nogueira', timeAgo: 'há 3 anos', quote: 'Muito bom, pode contar com a Dra. Luísa sempre.' },
+  { name: 'Camilla Castro', timeAgo: 'há 3 anos', quote: 'Sinto uma super segurança, só levo minha Lili neste local. A equipe passa muita segurança e sempre deixa minha filha lindíssima 🤩' },
+  { name: 'Samir Salim', timeAgo: 'há 4 anos', quote: 'Ótimo atendimento e preços justo.' },
+  { name: 'Anderson Oliveira', timeAgo: 'há 4 anos', quote: 'Atendimento de qualidade.' },
+  { name: 'Regina Cabral', timeAgo: 'há 4 anos', quote: 'Ótimo. Carinho, atenção e confiança!' },
 ]
 
 export default function Home() {
@@ -15,6 +27,11 @@ export default function Home() {
   const why = useReveal<HTMLDivElement>()
   const contact = useReveal<HTMLDivElement>()
   const scrollY = useScrollY()
+  const reviewsRef = useRef<HTMLDivElement>(null)
+
+  const scrollReviews = (direction: number) => {
+    reviewsRef.current?.scrollBy({ left: direction * 340, behavior: 'smooth' })
+  }
 
   const [form, setForm] = useState({ name: '', email: '', phone: '', service: '', message: '', consent: false })
   const [submitted, setSubmitted] = useState(false)
@@ -310,22 +327,56 @@ export default function Home() {
           <div id="depoimentos" className={styles.sectionHead}>
             <span className={styles.eyebrow}>Depoimentos</span>
             <h2>Quem confia, indica</h2>
+            <p>Avaliações reais de clientes no Google.</p>
           </div>
 
-          <div className={styles.testimonialsGrid}>
-            {testimonials.map((t, i) => (
-              <div key={i} className={styles.testimonialCard}>
-                <p className={styles.testimonialQuote}>&quot;{t.quote}&quot;</p>
-                <div className={styles.testimonialAuthor}>
-                  <span className={styles.avatar}>{t.name.charAt(0)}</span>
-                  <div>
-                    <div className={styles.testimonialName}>{t.name}</div>
-                    <div className={styles.testimonialPet}>{t.pet}</div>
+          <div className={styles.testimonialsCarouselWrap}>
+            <button
+              type="button"
+              className={`${styles.carouselArrow} ${styles.carouselArrowLeft}`}
+              onClick={() => scrollReviews(-1)}
+              aria-label="Ver avaliação anterior"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#566B53" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                <path d="M15 18l-6-6 6-6" />
+              </svg>
+            </button>
+
+            <div className={styles.testimonialsGrid} ref={reviewsRef}>
+              {googleReviews.map((t, i) => (
+                <div key={i} className={styles.testimonialCard}>
+                  <p className={styles.testimonialQuote}>&quot;{t.quote}&quot;</p>
+                  <div className={styles.testimonialAuthor}>
+                    <span className={styles.avatar}>{t.name.charAt(0)}</span>
+                    <div>
+                      <div className={styles.testimonialName}>{t.name}</div>
+                      <div className={styles.testimonialPet}>Avaliação no Google · {t.timeAgo}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            <button
+              type="button"
+              className={`${styles.carouselArrow} ${styles.carouselArrowRight}`}
+              onClick={() => scrollReviews(1)}
+              aria-label="Ver próxima avaliação"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#566B53" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                <path d="M9 18l6-6-6-6" />
+              </svg>
+            </button>
           </div>
+
+          <a
+            href={GOOGLE_REVIEWS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.reviewsLink}
+          >
+            Ver todas as avaliações no Google →
+          </a>
         </div>
       </section>
 
