@@ -170,12 +170,26 @@ export default function Home() {
             <div className={styles.serviceCard}>
               <div className={styles.cardIcon}>
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#566B53" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M3 12h4l2 7 4-14 2 7h4" />
+                  <path d="M4 11a8 8 0 0 0 16 0" />
+                  <path d="M4 11a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2" />
+                  <path d="M12 4v3" />
                 </svg>
               </div>
-              <h3>Exames Diagnósticos</h3>
-              <p>Ultrassom, raio-x e análises laboratoriais completas.</p>
-              <p className={styles.cardNote}>Diagnóstico precoce muda o rumo do tratamento.</p>
+              <h3>Suplementos e Ração</h3>
+              <p>Rações e suplementos alimentares de alta qualidade para cães e gatos de todas as idades.</p>
+              <p className={styles.cardNote}>Nutrição adequada é a base da saúde, do peso e da energia do seu pet.</p>
+            </div>
+
+            <div className={styles.serviceCard}>
+              <div className={styles.cardIcon}>
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#566B53" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="7" r="3" />
+                  <path d="M12 10v3c0 3.3 2.7 6 6 6h1" />
+                </svg>
+              </div>
+              <h3>Acessórios para Pets</h3>
+              <p>Coleiras, guias, brinquedos, tapetes higiênicos e muito mais para o dia a dia do seu companheiro.</p>
+              <p className={styles.cardNote}>Itens de qualidade garantem conforto e segurança em cada passeio.</p>
             </div>
 
             <div className={styles.serviceCard}>
