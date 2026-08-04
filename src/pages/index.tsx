@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Head from 'next/head'
 import styles from './index.module.css'
 import { useReveal, useScrollY } from '@/hooks/useReveal'
@@ -26,10 +26,24 @@ export default function Home() {
   const contact = useReveal<HTMLDivElement>()
   const scrollY = useScrollY()
   const reviewsRef = useRef<HTMLDivElement>(null)
+  const [reviewsScroll, setReviewsScroll] = useState({ atStart: true, atEnd: false })
 
   const scrollReviews = (direction: number) => {
     reviewsRef.current?.scrollBy({ left: direction * 340, behavior: 'smooth' })
   }
+
+  const updateReviewsScroll = () => {
+    const el = reviewsRef.current
+    if (!el) return
+    setReviewsScroll({
+      atStart: el.scrollLeft <= 4,
+      atEnd: el.scrollLeft + el.clientWidth >= el.scrollWidth - 4,
+    })
+  }
+
+  useEffect(() => {
+    updateReviewsScroll()
+  }, [])
 
   const [form, setForm] = useState({ name: '', email: '', phone: '', service: '', message: '', consent: false })
   const [submitted, setSubmitted] = useState(false)
@@ -328,6 +342,8 @@ export default function Home() {
             <p>Avaliações reais de clientes no Google.</p>
           </div>
 
+          <p className={styles.carouselHint}>Arraste para o lado para ver mais avaliações →</p>
+
           <div className={styles.testimonialsCarouselWrap}>
             <button
               type="button"
@@ -340,7 +356,7 @@ export default function Home() {
               </svg>
             </button>
 
-            <div className={styles.testimonialsGrid} ref={reviewsRef}>
+            <div className={styles.testimonialsGrid} ref={reviewsRef} onScroll={updateReviewsScroll}>
               {googleReviews.map((t, i) => (
                 <div key={i} className={styles.testimonialCard}>
                   <p className={styles.testimonialQuote}>&quot;{t.quote}&quot;</p>
@@ -354,6 +370,9 @@ export default function Home() {
                 </div>
               ))}
             </div>
+
+            {!reviewsScroll.atStart && <div className={`${styles.carouselFade} ${styles.carouselFadeLeft}`} />}
+            {!reviewsScroll.atEnd && <div className={`${styles.carouselFade} ${styles.carouselFadeRight}`} />}
 
             <button
               type="button"
