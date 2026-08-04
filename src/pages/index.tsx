@@ -68,11 +68,16 @@ export default function Home() {
       {/* Hero */}
       <section className={styles.hero}>
         <div className={styles.heroImage}>
-          <img
-            src="/logo/Logotipo Oficial.jpg"
-            alt="Toca das Patas"
-            className={styles.heroLogo}
-          />
+          <video
+            poster="/logo/Logotipo Oficial.jpg"
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source src="/videos/hero-animation.webm" type="video/webm" />
+            <source src="/videos/hero-animation.mp4" type="video/mp4" />
+          </video>
           <div className={styles.heroOverlay} style={{ transform: `translateY(${scrollY * 0.08}px)` }} />
         </div>
         <div className={styles.heroContent}>
