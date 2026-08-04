@@ -18,15 +18,41 @@ export default function Home() {
 
   const [form, setForm] = useState({ name: '', email: '', phone: '', service: '', message: '', consent: false })
   const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState<'idle' | 'sending' | 'error'>('idle')
 
   const setField = (field: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const value = field === 'consent' ? (e.target as HTMLInputElement).checked : e.target.value
     setForm((f) => ({ ...f, [field]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    setStatus('sending')
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: 'e0e509ae-9b7e-4425-97f7-c4ac5dc5851e',
+          subject: 'Nova mensagem do site - Toca das Patas',
+          from_name: 'Site Toca das Patas',
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          tipo_de_servico: form.service,
+          message: form.message,
+          deseja_promocoes_whatsapp: form.consent ? 'Sim' : 'Não',
+        }),
+      })
+      const result = await res.json()
+      if (result.success) {
+        setSubmitted(true)
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -366,7 +392,14 @@ export default function Home() {
                     <input type="checkbox" checked={form.consent} onChange={setField('consent')} />
                     Desejo receber promoções via WhatsApp
                   </label>
-                  <button type="submit" className={styles.submitBtn}>Enviar mensagem</button>
+                  {status === 'error' && (
+                    <p className={styles.formError}>
+                      Não foi possível enviar sua mensagem. Tente novamente ou fale conosco pelo WhatsApp.
+                    </p>
+                  )}
+                  <button type="submit" className={styles.submitBtn} disabled={status === 'sending'}>
+                    {status === 'sending' ? 'Enviando...' : 'Enviar mensagem'}
+                  </button>
                 </form>
               )}
             </div>

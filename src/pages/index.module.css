@@ -608,6 +608,17 @@
   margin-top: 6px;
 }
 
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.formError {
+  color: #C0392B;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
 /* Mobile */
 @media (max-width: 1024px) {
   .hero {
