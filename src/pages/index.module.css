@@ -16,7 +16,7 @@
 }
 
 .sectionHead h2 {
-  font-size: 4.8rem;
+  font-size: 2.4rem;
   margin: 0 0 16px 0;
   font-weight: 700;
 }
@@ -33,7 +33,7 @@
   color: var(--color-primary);
   font-weight: 700;
   letter-spacing: 1.6px;
-  font-size: 0.8rem;
+  font-size: 1.6rem;
   text-transform: uppercase;
   margin-bottom: 14px;
 }
@@ -43,14 +43,14 @@
   color: #C9D9C6;
   font-weight: 700;
   letter-spacing: 1.6px;
-  font-size: 0.8rem;
+  font-size: 1.6rem;
   text-transform: uppercase;
   margin-bottom: 14px;
 }
 
 .headingLight {
   color: #fff;
-  font-size: 4.8rem;
+  font-size: 2.4rem;
   margin: 0;
   font-weight: 700;
 }
@@ -99,7 +99,7 @@
   color: var(--color-light);
   font-weight: 700;
   letter-spacing: 1.6px;
-  font-size: 0.78rem;
+  font-size: 1.56rem;
   text-transform: uppercase;
   padding: 7px 16px;
   border-radius: 999px;
@@ -185,7 +185,7 @@
 }
 
 .aboutText h2 {
-  font-size: 5rem;
+  font-size: 2.5rem;
   margin: 0 0 18px 0;
   font-weight: 700;
 }
@@ -634,15 +634,7 @@
   }
 
   .sectionHead h2 {
-    font-size: 3.2rem;
-  }
-
-  .headingLight {
-    font-size: 3.2rem;
-  }
-
-  .aboutText h2 {
-    font-size: 3.2rem;
+    font-size: 1.9rem;
   }
 
   .servicesGrid, .reasonsGrid, .testimonialsGrid {

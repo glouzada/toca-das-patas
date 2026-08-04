@@ -26,11 +26,8 @@
 }
 
 .brand img {
-  width: 76px;
-  height: 76px;
-  object-fit: cover;
-  -webkit-mask-image: radial-gradient(circle, #000 48%, transparent 76%);
-  mask-image: radial-gradient(circle, #000 48%, transparent 76%);
+  max-width: 100%;
+  height: auto;
 }
 
 .brand h3 {
