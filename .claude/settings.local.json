@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "PowerShell(npm run dev)"
+      "PowerShell(npm run dev)",
+      "Bash(git pull *)",
+      "Bash(git reset *)",
+      "Bash(git push *)",
+      "Bash(git rm *)",
+      "Bash(git commit *)",
+      "Bash(git add *)"
     ]
   }
 }

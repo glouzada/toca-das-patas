@@ -131,8 +131,8 @@ export default function Home() {
                 </svg>
               </div>
               <h3>Rotina do Cachorro</h3>
-              <p>Exames periódicos, vacinação e verificação de saúde geral.</p>
-              <p className={styles.cardNote}>Vacinação em dia evita doenças graves e até fatais.</p>
+              <p>Exames periódicos, vacinação, verificação de saúde geral e controle de pulgas e carrapatos.</p>
+              <p className={styles.cardNote}>Pulgas e carrapatos transmitem doenças graves — prevenimos antes que apareçam e tratamos rapidamente se já estiverem presentes.</p>
             </div>
 
             <div className={styles.serviceCard}>

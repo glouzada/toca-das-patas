@@ -18,6 +18,25 @@
   margin-bottom: var(--spacing-xl);
 }
 
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: var(--spacing-md);
+}
+
+.brand img {
+  width: 76px;
+  height: 76px;
+  object-fit: cover;
+  -webkit-mask-image: radial-gradient(circle, #000 48%, transparent 76%);
+  mask-image: radial-gradient(circle, #000 48%, transparent 76%);
+}
+
+.brand h3 {
+  margin: 0;
+}
+
 .column h3,
 .column h4 {
   color: var(--color-secondary);
