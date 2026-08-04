@@ -1,0 +1,58 @@
+.colorPalette {
+  /* Paleta baseada no logotipo oficial */
+
+  /* Cores primárias - verde-sálvia */
+  --primary-sage: #7C9678;
+  --primary-sage-deep: #566B53;
+  --primary-sage-dark: #3F4F3C;
+
+  /* Cor secundária - dourado quente */
+  --secondary-gold: #C19A4B;
+
+  /* Neutros */
+  --neutral-cream: #F5F0E3;
+  --neutral-cream-alt: #EFE8D6;
+  --neutral-ink: #2B2418;
+  --neutral-text: #463D2F;
+  --neutral-border: #D8CFB8;
+  --neutral-white: #FFFFFF;
+
+  /* Funcionais */
+  --success: #25D366;
+  --warning: #C19A4B;
+  --error: #B3452F;
+  --info: #5F6E7A;
+
+  /* Sombras suaves */
+  --shadow-sm: 0 2px 4px rgba(43, 36, 24, 0.08);
+  --shadow-md: 0 8px 24px rgba(43, 36, 24, 0.1);
+  --shadow-lg: 0 16px 40px rgba(43, 36, 24, 0.16);
+}
+
+.button-primary {
+  background-color: var(--primary-sage);
+  color: var(--neutral-white);
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: var(--shadow-md);
+}
+
+.button-primary:hover {
+  background-color: var(--primary-sage-deep);
+  box-shadow: var(--shadow-lg);
+}
+
+.card {
+  background-color: var(--neutral-white);
+  border-radius: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 24px 100%, 0 calc(100% - 24px));
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-8px);
+  transition: all 0.35s ease;
+}
