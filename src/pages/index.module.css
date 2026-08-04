@@ -77,6 +77,12 @@
   min-height: 480px;
 }
 
+.heroLogo {
+  object-fit: contain;
+  background: var(--color-light);
+  padding: 56px;
+}
+
 .heroOverlay {
   position: absolute;
   inset: 0;
@@ -642,6 +648,10 @@
 
   .heroContent h1 {
     font-size: 2.2rem;
+  }
+
+  .heroImage img {
+    min-height: 382px;
   }
 
   .sectionHead h2 {

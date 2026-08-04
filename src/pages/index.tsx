@@ -71,7 +71,7 @@ export default function Home() {
           <img
             src="/logo/Logotipo Oficial.jpg"
             alt="Toca das Patas"
-            style={{ objectFit: 'contain', background: 'var(--color-light)', padding: '56px' }}
+            className={styles.heroLogo}
           />
           <div className={styles.heroOverlay} style={{ transform: `translateY(${scrollY * 0.08}px)` }} />
         </div>
