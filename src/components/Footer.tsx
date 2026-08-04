@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.content}>
-          <div className={styles.column}>
+          <div className={`${styles.column} ${styles.brandColumn}`}>
             <div className={styles.brand}>
               <img src="/logo/Logotipo Oficial.jpg" alt="Toca das Patas" />
               <h3>Toca das Patas</h3>
