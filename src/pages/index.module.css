@@ -519,13 +519,6 @@
   right: -18px;
 }
 
-.reviewsLink {
-  display: inline-block;
-  margin-top: 8px;
-  font-weight: 700;
-  color: var(--color-primary-deep);
-}
-
 @media (max-width: 900px) {
   .carouselArrow {
     display: none;

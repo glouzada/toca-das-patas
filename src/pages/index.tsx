@@ -3,8 +3,6 @@ import Head from 'next/head'
 import styles from './index.module.css'
 import { useReveal, useScrollY } from '@/hooks/useReveal'
 
-const GOOGLE_REVIEWS_URL = 'https://share.google/kcR2hkNv9Y5TBP4EM'
-
 const googleReviews = [
   { name: 'Marcelo Vieira', timeAgo: 'há 6 meses', quote: 'Sou cliente a muitos anos, excelente serviço, variedade de produtos e remédios!' },
   { name: 'Marcelo Preisegalavicius', timeAgo: 'há 1 ano', quote: 'Para quem precisa de uma ótima veterinária e hotel para cães, super recomendo este local, a Dra. Luísa tratou meus dois pequenos como se fossem dela e ao retornar de 18 dias fora, estão felizes e animados, só tenho a agradecer por tanto carinho e cuidado! Vocês são incríveis 🥰' },
@@ -368,15 +366,6 @@ export default function Home() {
               </svg>
             </button>
           </div>
-
-          <a
-            href={GOOGLE_REVIEWS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.reviewsLink}
-          >
-            Ver todas as avaliações no Google →
-          </a>
         </div>
       </section>
 
