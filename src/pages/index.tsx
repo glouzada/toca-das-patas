@@ -69,8 +69,9 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.heroImage}>
           <img
-            src="https://images.unsplash.com/photo-1576091160550-112173f84e40?w=900&h=700&fit=crop"
-            alt="Veterinária com cachorro feliz"
+            src="/logo/Logotipo Oficial.jpg"
+            alt="Toca das Patas"
+            style={{ objectFit: 'contain', background: 'var(--color-light)', padding: '56px' }}
           />
           <div className={styles.heroOverlay} style={{ transform: `translateY(${scrollY * 0.08}px)` }} />
         </div>
