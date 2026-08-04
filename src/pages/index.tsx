@@ -4,7 +4,7 @@ import styles from './index.module.css'
 import { useReveal, useScrollY } from '@/hooks/useReveal'
 
 const testimonials = [
-  { name: 'Marina T.', pet: 'tutora do Thor', quote: 'A Dra. Luiza explicou cada detalhe do procedimento do meu cachorro. Nunca me senti tão segura deixando ele em uma clínica.' },
+  { name: 'Marina T.', pet: 'tutora do Thor', quote: 'A Dra. Luísa explicou cada detalhe do procedimento do meu cachorro. Nunca me senti tão segura deixando ele em uma clínica.' },
   { name: 'Rafael C.', pet: 'tutor da Mel', quote: 'A tosa higiênica virou rotina aqui em casa. A Mel sai sempre cheirosa e a equipe é super atenciosa.' },
   { name: 'Camila P.', pet: 'tutora do Bento', quote: 'Descobrimos um problema no exame de rotina antes que virasse algo sério. Só tenho a agradecer.' },
 ]
@@ -102,26 +102,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sobre Luiza */}
+      {/* Sobre Luísa */}
       <section id="sobre" className={styles.about}>
         <div ref={about.ref} className={`${styles.reveal} ${about.visible ? styles.revealVisible : ''} ${styles.aboutGrid}`}>
           <div className={styles.aboutImage}>
             <img
               src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&h=700&fit=crop"
-              alt="Dra. Luiza Santos - Veterinária"
+              alt="Dra. Luísa Esteves - Veterinária"
             />
           </div>
           <div className={styles.aboutText}>
             <span className={styles.eyebrow}>Conheça quem cuida do seu pet</span>
-            <h2>Dra. Luiza Santos</h2>
+            <h2>Dra. Luísa Esteves</h2>
             <span className={styles.badge}>Médica Veterinária — CRMV-SP #12345</span>
             <p>
-              Com 12 anos de experiência em clínica veterinária, Luiza é especializada em medicina preventiva
+              Com 12 anos de experiência em clínica veterinária, Luísa é especializada em medicina preventiva
               e bem-estar animal. Apaixonada por pets desde criança, fundou a Toca das Patas para oferecer um
               espaço acolhedor onde cada animal recebe atenção personalizada.
             </p>
             <p className={styles.quote}>
-              &quot;Com Luiza, seu pet não é apenas um paciente. É família. Cada consulta é feita com a atenção
+              &quot;Com Luísa, seu pet não é apenas um paciente. É família. Cada consulta é feita com a atenção
               que você merecia receber.&quot;
             </p>
           </div>
